@@ -157,37 +157,37 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a] font-sans selection:bg-orange-200">
+    <div className="min-h-screen text-zinc-100 font-sans selection:bg-cyan-500/30">
       {/* Header */}
-      <header className="border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-zinc-800/50 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-              <Layout className="text-white w-5 h-5" />
+            <div className="w-8 h-8 bg-cyan-500 rounded-none flex items-center justify-center ai-glow">
+              <Layout className="text-black w-5 h-5" />
             </div>
-            <span className="font-bold text-xl tracking-tight">ProductVisualizer<span className="text-orange-500">AI</span> by Seph</span>
+            <span className="font-bold text-xl tracking-tight">ProductVisualizer<span className="text-cyan-400">AI</span></span>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-wider text-zinc-500">
             <button 
               onClick={() => setShowHowItWorks(true)}
-              className="hover:text-orange-500 transition-colors cursor-pointer"
+              className="hover:text-cyan-400 transition-colors cursor-pointer"
             >
               How it works
             </button>
             <button 
               onClick={() => setShowMediums(true)}
-              className="hover:text-orange-500 transition-colors cursor-pointer"
+              className="hover:text-cyan-400 transition-colors cursor-pointer"
             >
               Mediums
             </button>
             <button 
               onClick={() => setShowPricing(true)}
-              className="hover:text-orange-500 transition-colors cursor-pointer"
+              className="hover:text-cyan-400 transition-colors cursor-pointer"
             >
               Pricing
             </button>
           </nav>
-          <button className="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all">
+          <button className="bg-zinc-100 text-black px-4 py-2 rounded-none text-sm font-bold hover:bg-cyan-400 transition-all ai-glow hover:ai-glow-strong">
             Get Started
           </button>
         </div>
@@ -199,48 +199,48 @@ export default function App() {
           {/* Left Column: Controls */}
           <div className="space-y-10">
             <section>
-              <h1 className="text-5xl font-bold tracking-tighter leading-tight mb-4">
-                Visualize your product <br />
-                <span className="text-orange-500 italic font-serif">anywhere.</span>
+              <h1 className="text-6xl font-black tracking-tighter leading-[0.9] mb-4 uppercase">
+                Visualize your <br />
+                <span className="text-cyan-400 ai-glow">product</span> anywhere.
               </h1>
-              <p className="text-gray-500 text-lg max-w-md">
+              <p className="text-zinc-500 text-lg max-w-md font-medium">
                 Upload a product image and see it instantly rendered on various marketing mediums using advanced AI.
               </p>
             </section>
 
             {/* Upload Area */}
             <section className="space-y-4">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">1. Upload Product Image</h2>
+              <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">01. Upload Product Image</h2>
               <div 
                 {...getRootProps()} 
                 className={cn(
-                  "border-2 border-dashed rounded-3xl p-12 transition-all cursor-pointer flex flex-col items-center justify-center gap-4 text-center group",
-                  isDragActive ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:border-orange-300 hover:bg-gray-50",
-                  originalImage ? "border-green-500 bg-green-50" : ""
+                  "border border-dashed p-12 transition-all cursor-pointer flex flex-col items-center justify-center gap-4 text-center group glass-panel",
+                  isDragActive ? "border-cyan-500 bg-cyan-500/5" : "border-zinc-800 hover:border-cyan-500/50 hover:bg-zinc-900/50",
+                  originalImage ? "border-cyan-500/50 bg-cyan-500/5" : ""
                 )}
               >
                 <input {...getInputProps()} />
                 {originalImage ? (
-                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="relative w-full aspect-video overflow-hidden shadow-2xl border border-zinc-700">
                     <img 
                       src={`data:${originalImage.mimeType};base64,${originalImage.base64}`} 
                       alt="Original" 
-                      className="w-full h-full object-contain bg-white"
+                      className="w-full h-full object-contain bg-zinc-950"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <p className="text-white font-medium flex items-center gap-2">
+                    <div className="absolute inset-0 bg-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                      <p className="text-white font-bold flex items-center gap-2 uppercase text-xs tracking-widest">
                         <RefreshCw className="w-4 h-4" /> Change Image
                       </p>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Upload className="text-gray-400 w-8 h-8" />
+                    <div className="w-16 h-16 bg-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-cyan-500/20 group-hover:ai-glow">
+                      <Upload className="text-zinc-500 w-8 h-8 group-hover:text-cyan-400" />
                     </div>
                     <div>
-                      <p className="font-semibold text-lg">Drop your product image here</p>
-                      <p className="text-gray-400 text-sm">PNG, JPG or WEBP (Max 5MB)</p>
+                      <p className="font-bold text-lg uppercase tracking-tight">Drop your product image here</p>
+                      <p className="text-zinc-600 text-xs font-mono">PNG, JPG or WEBP (Max 5MB)</p>
                     </div>
                   </>
                 )}
@@ -250,15 +250,15 @@ export default function App() {
             {/* Medium Selection */}
             <section className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">2. Select Marketing Medium</h2>
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">02. Select Marketing Medium</h2>
                 <div className="relative w-48">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
                   <input 
                     type="text" 
-                    placeholder="Search mediums..."
+                    placeholder="Search..."
                     value={mediumSearch}
                     onChange={(e) => setMediumSearch(e.target.value)}
-                    className="w-full pl-9 pr-4 py-1.5 bg-white border border-gray-100 rounded-full text-xs focus:border-orange-500 outline-none transition-all"
+                    className="w-full pl-9 pr-4 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none text-[10px] uppercase font-mono tracking-wider focus:border-cyan-500 outline-none transition-all text-zinc-300"
                   />
                 </div>
               </div>
@@ -268,25 +268,25 @@ export default function App() {
                     key={medium.id}
                     onClick={() => setSelectedMedium(medium)}
                     className={cn(
-                      "p-4 rounded-2xl border-2 transition-all text-left flex flex-col gap-3 group",
+                      "p-4 border transition-all text-left flex flex-col gap-3 group glass-panel",
                       selectedMedium.id === medium.id 
-                        ? "border-orange-500 bg-orange-50 ring-4 ring-orange-100" 
-                        : "border-gray-100 hover:border-gray-200 bg-white"
+                        ? "border-cyan-500 bg-cyan-500/10 ai-glow" 
+                        : "border-zinc-800 hover:border-zinc-700 bg-zinc-900/20"
                     )}
                   >
                     <medium.icon className={cn(
                       "w-6 h-6 transition-colors",
-                      selectedMedium.id === medium.id ? "text-orange-500" : "text-gray-400 group-hover:text-gray-600"
+                      selectedMedium.id === medium.id ? "text-cyan-400" : "text-zinc-600 group-hover:text-zinc-400"
                     )} />
-                    <span className="font-semibold text-sm">{medium.name}</span>
+                    <span className="font-bold text-xs uppercase tracking-tight">{medium.name}</span>
                   </button>
                 ))}
                 <button 
                   onClick={() => setShowMediums(true)}
-                  className="p-4 rounded-2xl border-2 border-dashed border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-all text-center flex flex-col items-center justify-center gap-1 group"
+                  className="p-4 border border-dashed border-zinc-800 hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all text-center flex flex-col items-center justify-center gap-1 group glass-panel"
                 >
-                  <span className="text-orange-500 font-bold text-sm">+ {MEDIUMS.length - 5} More</span>
-                  <span className="text-[10px] text-gray-400 uppercase font-bold">View All</span>
+                  <span className="text-cyan-400 font-bold text-xs">+ {MEDIUMS.length - 5} More</span>
+                  <span className="text-[8px] text-zinc-600 uppercase font-bold font-mono">View All</span>
                 </button>
               </div>
             </section>
@@ -294,17 +294,17 @@ export default function App() {
             {/* Resolution & Aspect Ratio Selection */}
             <div className="grid sm:grid-cols-2 gap-6">
               <section className="space-y-4">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">3. Select Resolution</h2>
-                <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100 rounded-2xl w-fit">
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">03. Select Resolution</h2>
+                <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none w-fit">
                   {RESOLUTIONS.map((res) => (
                     <button
                       key={res.id}
                       onClick={() => setSelectedResolution(res.id)}
                       className={cn(
-                        "px-4 py-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5",
+                        "px-4 py-2 text-[10px] font-bold transition-all flex flex-col items-center gap-0.5 font-mono",
                         selectedResolution === res.id 
-                          ? "bg-white text-orange-500 shadow-sm" 
-                          : "text-gray-400 hover:text-gray-600"
+                          ? "bg-cyan-500 text-black ai-glow" 
+                          : "text-zinc-500 hover:text-zinc-300"
                       )}
                     >
                       <span>{res.name}</span>
@@ -315,17 +315,17 @@ export default function App() {
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">4. Aspect Ratio</h2>
-                <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100 rounded-2xl w-fit">
+                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">04. Aspect Ratio</h2>
+                <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none w-fit">
                   {ASPECT_RATIOS.map((ratio) => (
                     <button
                       key={ratio.id}
                       onClick={() => setSelectedAspectRatio(ratio.id)}
                       className={cn(
-                        "px-3 py-2 rounded-xl text-xs font-bold transition-all flex flex-col items-center gap-0.5 min-w-[60px]",
+                        "px-3 py-2 text-[10px] font-bold transition-all flex flex-col items-center gap-0.5 min-w-[60px] font-mono",
                         selectedAspectRatio === ratio.id 
-                          ? "bg-white text-orange-500 shadow-sm" 
-                          : "text-gray-400 hover:text-gray-600"
+                          ? "bg-cyan-500 text-black ai-glow" 
+                          : "text-zinc-500 hover:text-zinc-300"
                       )}
                     >
                       <span>{ratio.name}</span>
@@ -341,27 +341,27 @@ export default function App() {
               onClick={handleGenerate}
               disabled={!originalImage || isGenerating}
               className={cn(
-                "w-full py-5 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-xl",
+                "w-full py-5 rounded-none font-black text-lg uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl",
                 !originalImage || isGenerating 
-                  ? "bg-gray-100 text-gray-400 cursor-not-allowed" 
-                  : "bg-orange-500 text-white hover:bg-orange-600 active:scale-[0.98] hover:shadow-orange-200"
+                  ? "bg-zinc-900 text-zinc-700 cursor-not-allowed border border-zinc-800" 
+                  : "bg-cyan-500 text-black hover:bg-cyan-400 active:scale-[0.98] ai-glow hover:ai-glow-strong"
               )}
             >
               {isGenerating ? (
                 <>
                   <Loader2 className="w-6 h-6 animate-spin" />
-                  Visualizing with AI...
+                  Processing...
                 </>
               ) : (
                 <>
-                  <CheckCircle2 className="w-6 h-6" />
-                  Generate Visualization
+                  <Zap className="w-6 h-6" />
+                  Generate
                 </>
               )}
             </button>
 
             {error && (
-              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl flex items-center gap-3 text-red-600 text-sm">
+              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center gap-3 text-red-400 text-xs font-mono uppercase tracking-wider">
                 <AlertCircle className="w-5 h-5 shrink-0" />
                 {error}
               </div>
@@ -370,7 +370,7 @@ export default function App() {
 
           {/* Right Column: Result Display */}
           <div className="sticky top-28">
-            <div className="relative w-full bg-gray-200 rounded-[2.5rem] overflow-hidden shadow-inner border-8 border-white" style={{ aspectRatio: selectedAspectRatio.replace(':', '/') }}>
+            <div className="relative w-full bg-zinc-950 border border-zinc-800 ai-glow overflow-hidden" style={{ aspectRatio: selectedAspectRatio.replace(':', '/') }}>
               <AnimatePresence mode="wait">
                 {isGenerating ? (
                   <motion.div 
@@ -378,15 +378,15 @@ export default function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-gray-50"
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-zinc-950"
                   >
                     <div className="relative">
-                      <div className="w-24 h-24 border-4 border-orange-100 rounded-full animate-pulse" />
-                      <Loader2 className="absolute inset-0 m-auto w-10 h-10 text-orange-500 animate-spin" />
+                      <div className="w-24 h-24 border-4 border-cyan-500/10 animate-pulse" />
+                      <Loader2 className="absolute inset-0 m-auto w-10 h-10 text-cyan-400 animate-spin" />
                     </div>
                     <div className="text-center">
-                      <p className="font-bold text-xl">Creating Magic</p>
-                      <p className="text-gray-400 text-sm">Our AI is placing your product on a {selectedMedium.name}...</p>
+                      <p className="font-black text-xl uppercase tracking-tighter">Synthesizing</p>
+                      <p className="text-zinc-600 text-[10px] uppercase font-mono tracking-widest">AI is rendering your product...</p>
                     </div>
                   </motion.div>
                 ) : generatedImage ? (
@@ -404,15 +404,15 @@ export default function App() {
                     <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
                       <button 
                         onClick={handleDownload}
-                        className="bg-white text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                        className="bg-cyan-500 text-black px-6 py-3 font-bold shadow-[0_0_20px_rgba(6,182,212,0.5)] flex items-center gap-2 hover:bg-cyan-400 transition-all active:scale-95"
                       >
-                        <Download className="w-5 h-5" /> Download
+                        <Download className="w-5 h-5" /> DOWNLOAD
                       </button>
                       <button 
                         onClick={() => setGeneratedImage(null)}
-                        className="bg-black/80 backdrop-blur-md text-white px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 hover:bg-black transition-colors"
+                        className="bg-zinc-900/80 backdrop-blur-md text-white border border-zinc-700 px-6 py-3 font-bold shadow-2xl flex items-center gap-2 hover:bg-zinc-800 transition-all active:scale-95"
                       >
-                        <RefreshCw className="w-5 h-5" /> Reset
+                        <RefreshCw className="w-5 h-5" /> RESET
                       </button>
                     </div>
                   </motion.div>
@@ -421,14 +421,14 @@ export default function App() {
                     key="placeholder"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-gray-100 text-gray-400 p-12 text-center"
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-zinc-900/50 text-zinc-500 p-12 text-center"
                   >
-                    <div className="w-20 h-20 border-2 border-dashed border-gray-300 rounded-3xl flex items-center justify-center">
-                      <ImageIcon className="w-10 h-10" />
+                    <div className="w-20 h-20 border border-dashed border-zinc-800 flex items-center justify-center bg-zinc-950/50">
+                      <ImageIcon className="w-10 h-10 text-zinc-700" />
                     </div>
                     <div>
-                      <p className="font-bold text-xl text-gray-500">Visualization Preview</p>
-                      <p className="text-sm max-w-[200px] mx-auto mt-2">Upload an image and click generate to see the magic happen.</p>
+                      <p className="font-bold text-xl text-zinc-400 tracking-tight">VISUALIZATION PREVIEW</p>
+                      <p className="text-xs max-w-[200px] mx-auto mt-2 text-zinc-600 font-mono">Upload an image and click generate to see the AI magic happen.</p>
                     </div>
                   </motion.div>
                 )}
@@ -440,11 +440,11 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-6 p-6 bg-white rounded-3xl border border-gray-100 shadow-sm space-y-4"
+                className="mt-6 p-6 glass-panel border border-zinc-800/50 space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">Adjust Product Design</h2>
-                  <span className="text-[10px] bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-bold">AI POWERED</span>
+                  <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-500/70">Adjust Product Design</h2>
+                  <span className="text-[9px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-none font-bold border border-cyan-500/20 tracking-widest">AI POWERED</span>
                 </div>
                 <div className="flex gap-2">
                   <input 
@@ -452,35 +452,35 @@ export default function App() {
                     value={refinementPrompt}
                     onChange={(e) => setRefinementPrompt(e.target.value)}
                     placeholder="e.g. Change background to blue, make it sunset..."
-                    className="flex-grow px-4 py-3 rounded-2xl border border-gray-100 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none transition-all text-sm"
+                    className="flex-grow px-4 py-3 bg-zinc-950 border border-zinc-800 focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all text-sm text-zinc-300 placeholder:text-zinc-700"
                     onKeyDown={(e) => e.key === 'Enter' && handleRefine()}
                   />
                   <button 
                     onClick={handleRefine}
                     disabled={!refinementPrompt || isGenerating}
-                    className="bg-black text-white px-6 py-3 rounded-2xl font-bold hover:bg-gray-800 transition-all disabled:bg-gray-100 disabled:text-gray-400 flex items-center gap-2"
+                    className="bg-cyan-500 text-black px-6 py-3 font-bold hover:bg-cyan-400 transition-all disabled:bg-zinc-900 disabled:text-zinc-700 flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
                   >
                     {isGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Zap className="w-4 h-4" />}
-                    Adjust
+                    ADJUST
                   </button>
                 </div>
-                <p className="text-[10px] text-gray-400 italic">Describe how you want to change the generated image above.</p>
+                <p className="text-[10px] text-zinc-600 font-mono italic">Describe how you want to change the generated image above.</p>
               </motion.div>
             )}
 
             {/* Stats/Info */}
             <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">Resolution</p>
-                <p className="font-bold">1024 x 1024</p>
+              <div className="glass-panel p-4 border border-zinc-800/50">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Resolution</p>
+                <p className="font-bold text-zinc-300 font-mono">1024 x 1024</p>
               </div>
-              <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">AI Model</p>
-                <p className="font-bold">Gemini 2.5</p>
+              <div className="glass-panel p-4 border border-zinc-800/50">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">AI Model</p>
+                <p className="font-bold text-zinc-300 font-mono">Gemini 3.1</p>
               </div>
-              <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">Consistency</p>
-                <p className="font-bold text-green-500">High</p>
+              <div className="glass-panel p-4 border border-zinc-800/50">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Consistency</p>
+                <p className="font-bold text-cyan-400 font-mono">ULTRA</p>
               </div>
             </div>
           </div>
@@ -489,19 +489,19 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 mt-20">
+      <footer className="border-t border-zinc-900 py-12 mt-20 bg-black/50 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2 opacity-50 grayscale">
-            <div className="w-6 h-6 bg-black rounded flex items-center justify-center">
-              <Layout className="text-white w-4 h-4" />
+          <div className="flex items-center gap-2 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+            <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center">
+              <Layout className="text-black w-4 h-4" />
             </div>
-            <span className="font-bold text-lg tracking-tight">ProductVisualizerAI by Seph</span>
+            <span className="font-bold text-lg tracking-tighter text-white">PRODUCT VISUALIZER <span className="text-cyan-500">AI</span></span>
           </div>
-          <p className="text-gray-400 text-sm">© 2026 ProductVisualizerAI by Seph. Powered by Google Gemini.</p>
-          <div className="flex gap-6 text-gray-400 text-sm font-medium">
-            <button onClick={() => setShowPrivacy(true)} className="hover:text-black transition-colors cursor-pointer">Privacy</button>
-            <button onClick={() => setShowTerms(true)} className="hover:text-black transition-colors cursor-pointer">Terms</button>
-            <a href="mailto:argeljosephtam94@gmail.com" className="hover:text-black transition-colors">Contact</a>
+          <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">© 2026 PV-AI SYSTEM. POWERED BY GOOGLE GEMINI NEURAL ENGINE.</p>
+          <div className="flex gap-8 text-zinc-500 text-xs font-bold tracking-widest uppercase">
+            <button onClick={() => setShowPrivacy(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Privacy</button>
+            <button onClick={() => setShowTerms(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Terms</button>
+            <a href="mailto:argeljosephtam94@gmail.com" className="hover:text-cyan-400 transition-colors">Contact</a>
           </div>
         </div>
       </footer>
@@ -515,55 +515,55 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowHowItWorks(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[2rem] shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden"
             >
               <div className="p-8 md:p-12">
                 <button 
                   onClick={() => setShowHowItWorks(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
                 >
-                  <X className="w-6 h-6 text-gray-400" />
+                  <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tight mb-8">How to use <span className="text-orange-500">ProductVisualizerAI</span></h2>
+                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">How to use <span className="text-cyan-500">PV-AI</span></h2>
                 
                 <div className="space-y-8">
                   <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center font-bold shrink-0">1</div>
+                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">01</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Upload your product</h3>
-                      <p className="text-gray-500">Drag and drop or click to upload a high-quality image of your product. For best results, use an image with a clean background.</p>
+                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Upload your product</h3>
+                      <p className="text-zinc-500 text-sm leading-relaxed">Drag and drop or click to upload a high-quality image of your product. For best results, use an image with a clean background.</p>
                     </div>
                   </div>
 
                   <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center font-bold shrink-0">2</div>
+                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">02</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Select a medium</h3>
-                      <p className="text-gray-500">Choose from our curated list of marketing mediums like coffee mugs, billboards, or t-shirts where you want to see your product.</p>
+                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Select a medium</h3>
+                      <p className="text-zinc-500 text-sm leading-relaxed">Choose from our curated list of marketing mediums like coffee mugs, billboards, or t-shirts where you want to see your product.</p>
                     </div>
                   </div>
 
                   <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center font-bold shrink-0">3</div>
+                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">03</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Generate & Download</h3>
-                      <p className="text-gray-500">Click generate and let our AI handle the rest. Once finished, you can download your professional visualization instantly.</p>
+                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Generate & Download</h3>
+                      <p className="text-zinc-500 text-sm leading-relaxed">Click generate and let our AI handle the rest. Once finished, you can download your professional visualization instantly.</p>
                     </div>
                   </div>
                 </div>
 
                 <button 
                   onClick={() => setShowHowItWorks(false)}
-                  className="w-full mt-12 bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition-all"
+                  className="w-full mt-12 bg-cyan-500 text-black py-4 font-bold hover:bg-cyan-400 transition-all active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
                 >
-                  Got it, let's go!
+                  INITIALIZE SYSTEM
                 </button>
               </div>
             </motion.div>
@@ -580,35 +580,35 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowMediums(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-4xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-4xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
             >
-              <div className="p-8 md:p-12">
+              <div className="p-8 md:p-12 overflow-y-auto">
                 <button 
                   onClick={() => setShowMediums(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
                 >
-                  <X className="w-6 h-6 text-gray-400" />
+                  <X className="w-6 h-6" />
                 </button>
 
                 <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                   <div>
-                    <h2 className="text-4xl font-bold tracking-tight mb-2">Available <span className="text-orange-500">Mediums</span></h2>
-                    <p className="text-gray-500">Explore all the professional settings where you can visualize your product.</p>
+                    <h2 className="text-4xl font-bold tracking-tighter mb-2 text-white uppercase">Available <span className="text-cyan-500">Mediums</span></h2>
+                    <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Explore professional settings for your product visualization.</p>
                   </div>
                   <div className="relative w-full md:w-80">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-600" />
                     <input 
                       type="text" 
                       placeholder="Search for a medium..."
                       value={mediumSearch}
                       onChange={(e) => setMediumSearch(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3 bg-gray-100 rounded-2xl focus:bg-white border border-transparent focus:border-orange-500 outline-none transition-all"
+                      className="w-full pl-12 pr-4 py-3 bg-zinc-900 border border-zinc-800 focus:border-cyan-500/50 outline-none transition-all text-zinc-300 placeholder:text-zinc-700 font-mono uppercase text-xs tracking-widest"
                     />
                   </div>
                 </div>
@@ -617,22 +617,20 @@ export default function App() {
                   {filteredMediums.map((medium) => (
                     <div 
                       key={medium.id}
-                      className="p-6 rounded-3xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl hover:border-orange-200 transition-all group"
+                      className="p-6 border border-zinc-900 bg-zinc-900/30 hover:bg-zinc-900/50 hover:border-cyan-500/30 transition-all group cursor-pointer"
+                      onClick={() => {
+                        setSelectedMedium(medium);
+                        setShowMediums(false);
+                      }}
                     >
-                      <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <medium.icon className="w-6 h-6 text-orange-500" />
+                      <div className="w-12 h-12 bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-cyan-500/50 transition-all">
+                        <medium.icon className="w-6 h-6 text-cyan-500" />
                       </div>
-                      <h3 className="font-bold text-lg mb-1">{medium.name}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{medium.description}</p>
-                      <button 
-                        onClick={() => {
-                          setSelectedMedium(medium);
-                          setShowMediums(false);
-                        }}
-                        className="mt-4 text-xs font-bold uppercase tracking-widest text-orange-500 hover:text-orange-600 flex items-center gap-1"
-                      >
-                        Select this medium <Zap className="w-3 h-3" />
-                      </button>
+                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">{medium.name}</h3>
+                      <p className="text-zinc-500 text-xs leading-relaxed font-mono">{medium.description}</p>
+                      <div className="mt-4 text-[10px] font-bold uppercase tracking-widest text-cyan-500/70 group-hover:text-cyan-400 flex items-center gap-1">
+                        SELECT MEDIUM <Zap className="w-3 h-3" />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -651,114 +649,115 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowPricing(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#fafafa] rounded-[3rem] shadow-2xl overflow-hidden"
+              className="relative w-full max-w-5xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden"
             >
               <div className="p-8 md:p-16">
                 <button 
                   onClick={() => setShowPricing(false)}
-                  className="absolute top-8 right-8 p-2 hover:bg-gray-200 rounded-full transition-colors"
+                  className="absolute top-8 right-8 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
                 >
-                  <X className="w-6 h-6 text-gray-400" />
+                  <X className="w-6 h-6" />
                 </button>
 
                 <div className="text-center mb-16">
-                  <span className="bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Student Friendly</span>
-                  <h2 className="text-5xl font-bold tracking-tight mb-4">Simple, <span className="text-orange-500 italic font-serif">honest</span> pricing.</h2>
-                  <p className="text-gray-500 max-w-lg mx-auto">High-quality visualizations shouldn't break the bank. Choose the plan that fits your needs.</p>
+                  <span className="bg-cyan-500/10 text-cyan-400 px-4 py-1 rounded-none text-[10px] font-bold uppercase tracking-[0.2em] mb-4 inline-block border border-cyan-500/20">System Access</span>
+                  <h2 className="text-5xl font-bold tracking-tighter mb-4 text-white uppercase">Simple, <span className="text-cyan-500 italic font-serif lowercase">transparent</span> pricing.</h2>
+                  <p className="text-zinc-500 max-w-lg mx-auto font-mono text-xs uppercase tracking-widest">High-performance visualization for every creator.</p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {/* Free Plan */}
-                  <div className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col">
+                  <div className="bg-zinc-900/50 p-8 border border-zinc-800 flex flex-col hover:border-zinc-700 transition-colors">
                     <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2">Free</h3>
+                      <h3 className="font-bold text-xl mb-2 text-zinc-200 uppercase tracking-tight">Basic</h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold">₱0</span>
-                        <span className="text-gray-400 text-sm">/month</span>
+                        <span className="text-4xl font-bold text-white">₱0</span>
+                        <span className="text-zinc-600 text-xs font-mono">/MO</span>
                       </div>
                     </div>
                     <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> 5 visualizations / month
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> 5 VISUALS / MO
                       </li>
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Standard resolution
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> STANDARD RES
                       </li>
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Basic mediums
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> BASIC MEDIUMS
                       </li>
                     </ul>
-                    <button className="w-full py-4 rounded-2xl font-bold border-2 border-gray-100 hover:bg-gray-50 transition-all">Current Plan</button>
+                    <button className="w-full py-4 font-bold border border-zinc-800 text-zinc-500 hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest">Current Tier</button>
                   </div>
 
                   {/* Student Plan */}
-                  <div className="bg-white p-8 rounded-[2rem] border-2 border-orange-500 shadow-xl shadow-orange-100 flex flex-col relative transform scale-105 z-10">
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Most Popular</div>
+                  <div className="bg-zinc-900 p-8 border-2 border-cyan-500 shadow-[0_0_40px_rgba(6,182,212,0.15)] flex flex-col relative transform scale-105 z-10">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-black px-4 py-1 rounded-none text-[9px] font-bold uppercase tracking-[0.2em]">Recommended</div>
                     <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2 flex items-center gap-2">Student <Star className="w-4 h-4 text-orange-500 fill-orange-500" /></h3>
+                      <h3 className="font-bold text-xl mb-2 flex items-center gap-2 text-white uppercase tracking-tight">Creator <Star className="w-4 h-4 text-cyan-500 fill-cyan-500" /></h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold">₱49</span>
-                        <span className="text-gray-400 text-sm">/month</span>
+                        <span className="text-4xl font-bold text-white">₱49</span>
+                        <span className="text-zinc-400 text-xs font-mono">/MO</span>
                       </div>
                     </div>
                     <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-sm font-medium">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" /> 50 visualizations / month
+                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> 50 VISUALS / MO
                       </li>
-                      <li className="flex items-center gap-3 text-sm font-medium">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" /> High definition (2K)
+                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> HD RESOLUTION
                       </li>
-                      <li className="flex items-center gap-3 text-sm font-medium">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" /> All 10+ mediums
+                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> ALL MEDIUMS
                       </li>
-                      <li className="flex items-center gap-3 text-sm font-medium">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" /> No watermarks
+                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> NO WATERMARKS
                       </li>
                     </ul>
-                    <button className="w-full py-4 rounded-2xl font-bold bg-orange-500 text-white hover:bg-orange-600 transition-all shadow-lg shadow-orange-200">Upgrade Now</button>
+                    <button className="w-full py-4 font-bold bg-cyan-500 text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] uppercase text-xs tracking-widest">Upgrade System</button>
                   </div>
 
                   {/* Pro Plan */}
-                  <div className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col">
+                  <div className="bg-zinc-900/50 p-8 border border-zinc-800 flex flex-col hover:border-zinc-700 transition-colors">
                     <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2">Pro</h3>
+                      <h3 className="font-bold text-xl mb-2 text-zinc-200 uppercase tracking-tight">Enterprise</h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold">₱199</span>
-                        <span className="text-gray-400 text-sm">/month</span>
+                        <span className="text-4xl font-bold text-white">₱199</span>
+                        <span className="text-zinc-600 text-xs font-mono">/MO</span>
                       </div>
                     </div>
                     <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Unlimited visualizations
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> UNLIMITED VISUALS
                       </li>
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Ultra HD (4K)
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> ULTRA HD (4K)
                       </li>
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Custom mediums via AI
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> CUSTOM AI MEDIUMS
                       </li>
-                      <li className="flex items-center gap-3 text-sm text-gray-500">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" /> Commercial license
+                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> COMMERCIAL LICENSE
                       </li>
                     </ul>
-                    <button className="w-full py-4 rounded-2xl font-bold bg-black text-white hover:bg-gray-800 transition-all">Go Pro</button>
+                    <button className="w-full py-4 font-bold bg-white text-black hover:bg-zinc-200 transition-all uppercase text-xs tracking-widest">Contact Sales</button>
                   </div>
                 </div>
 
-                <p className="text-center mt-12 text-gray-400 text-xs flex items-center justify-center gap-2">
-                  <CreditCard className="w-3 h-3" /> Secure payment via GCash, Maya, or Credit Card.
+                <p className="text-center mt-12 text-zinc-600 text-[10px] font-mono flex items-center justify-center gap-2 uppercase tracking-widest">
+                  <CreditCard className="w-3 h-3" /> Encrypted payment via GCash, Maya, or Credit Card.
                 </p>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
+
       {/* Privacy Modal */}
       <AnimatePresence>
         {showPrivacy && (
@@ -768,48 +767,44 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowPrivacy(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
             >
               <div className="p-8 md:p-12">
                 <button 
                   onClick={() => setShowPrivacy(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
                 >
-                  <X className="w-6 h-6 text-gray-400" />
+                  <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tight mb-8">Privacy <span className="text-orange-500">Policy</span></h2>
+                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">Privacy <span className="text-cyan-500">Protocol</span></h2>
                 
-                <div className="prose prose-orange max-w-none space-y-6 text-gray-600">
+                <div className="space-y-6 text-zinc-500 text-sm leading-relaxed font-mono uppercase tracking-tight">
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">1. Information We Collect</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">01. DATA COLLECTION</h3>
                     <p>We collect the images you upload for the sole purpose of generating visualizations. These images are processed by Google Gemini AI and are not stored permanently on our servers unless you explicitly save them.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">2. How We Use Your Data</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">02. DATA USAGE</h3>
                     <p>Your data is used to provide and improve the ProductVisualizerAI service. We do not sell your personal information or uploaded content to third parties.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">3. AI Processing</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">03. NEURAL PROCESSING</h3>
                     <p>By using this service, you acknowledge that your uploaded images are processed by Google's Gemini AI models. Please refer to Google's Privacy Policy for more information on how they handle data.</p>
-                  </section>
-                  <section>
-                    <h3 className="text-lg font-bold text-black mb-2">4. Security</h3>
-                    <p>We implement industry-standard security measures to protect your data during transmission and processing.</p>
                   </section>
                 </div>
 
                 <button 
                   onClick={() => setShowPrivacy(false)}
-                  className="w-full mt-12 bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition-all"
+                  className="w-full mt-12 bg-zinc-900 text-zinc-400 py-4 font-bold hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest border border-zinc-800"
                 >
-                  Close
+                  CLOSE PROTOCOL
                 </button>
               </div>
             </motion.div>
@@ -826,48 +821,44 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowTerms(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
             >
               <div className="p-8 md:p-12">
                 <button 
                   onClick={() => setShowTerms(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
                 >
-                  <X className="w-6 h-6 text-gray-400" />
+                  <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tight mb-8">Terms of <span className="text-orange-500">Service</span></h2>
+                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">Terms of <span className="text-cyan-500">Service</span></h2>
                 
-                <div className="prose prose-orange max-w-none space-y-6 text-gray-600">
+                <div className="space-y-6 text-zinc-500 text-sm leading-relaxed font-mono uppercase tracking-tight">
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">1. Acceptance of Terms</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">01. ACCEPTANCE</h3>
                     <p>By accessing or using ProductVisualizerAI, you agree to be bound by these Terms of Service.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">2. Use of Service</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">02. USAGE</h3>
                     <p>You agree to use the service only for lawful purposes and in accordance with these Terms. You are responsible for any content you upload.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-black mb-2">3. Intellectual Property</h3>
+                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">03. INTELLECTUAL PROPERTY</h3>
                     <p>You retain ownership of the original images you upload. ProductVisualizerAI retains ownership of the underlying AI technology and platform.</p>
-                  </section>
-                  <section>
-                    <h3 className="text-lg font-bold text-black mb-2">4. Limitation of Liability</h3>
-                    <p>ProductVisualizerAI is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the service.</p>
                   </section>
                 </div>
 
                 <button 
                   onClick={() => setShowTerms(false)}
-                  className="w-full mt-12 bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition-all"
+                  className="w-full mt-12 bg-zinc-900 text-zinc-400 py-4 font-bold hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest border border-zinc-800"
                 >
-                  Close
+                  CLOSE TERMS
                 </button>
               </div>
             </motion.div>
