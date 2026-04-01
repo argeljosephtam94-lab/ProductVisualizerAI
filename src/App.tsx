@@ -165,7 +165,7 @@ export default function App() {
             <div className="w-8 h-8 bg-cyan-500 rounded-none flex items-center justify-center ai-glow">
               <Layout className="text-black w-5 h-5" />
             </div>
-            <span className="font-bold text-xl tracking-tight">ProductVisualizer<span className="text-cyan-400">AI</span></span>
+            <span className="font-bold text-xl tracking-tight">ProductVisualizer <span className="text-cyan-400">by Seph</span></span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-wider text-zinc-500">
             <button 
@@ -495,9 +495,9 @@ export default function App() {
             <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center">
               <Layout className="text-black w-4 h-4" />
             </div>
-            <span className="font-bold text-lg tracking-tighter text-white">PRODUCT VISUALIZER <span className="text-cyan-500">AI</span></span>
+            <span className="font-bold text-lg tracking-tighter text-white uppercase">ProductVisualizer <span className="text-cyan-500">by Seph</span></span>
           </div>
-          <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">© 2026 PV-AI SYSTEM. POWERED BY GOOGLE GEMINI NEURAL ENGINE.</p>
+          <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">© 2026 PRODUCTVISUALIZER BY SEPH. POWERED BY GOOGLE GEMINI NEURAL ENGINE.</p>
           <div className="flex gap-8 text-zinc-500 text-xs font-bold tracking-widest uppercase">
             <button onClick={() => setShowPrivacy(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Privacy</button>
             <button onClick={() => setShowTerms(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Terms</button>
@@ -531,7 +531,7 @@ export default function App() {
                   <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">How to use <span className="text-cyan-500">PV-AI</span></h2>
+                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">How to use <span className="text-cyan-500">ProductVisualizer</span></h2>
                 
                 <div className="space-y-8">
                   <div className="flex gap-6">
