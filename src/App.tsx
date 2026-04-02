@@ -157,90 +157,90 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen text-zinc-100 font-sans selection:bg-cyan-500/30">
+    <div className="min-h-screen text-stone-800 font-sans selection:bg-stone-200">
       {/* Header */}
-      <header className="border-b border-zinc-800/50 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-cyan-500 rounded-none flex items-center justify-center ai-glow">
-              <Layout className="text-black w-5 h-5" />
+      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-stone-900 rounded-xl flex items-center justify-center shadow-sm">
+              <Layout className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-xl tracking-tight">ProductVisualizer <span className="text-cyan-400">by Seph</span></span>
+            <span className="font-bold text-xl tracking-tight text-stone-900">ProductVisualizer <span className="text-stone-400 font-light">by Seph</span></span>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-mono uppercase tracking-wider text-zinc-500">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-stone-500">
             <button 
               onClick={() => setShowHowItWorks(true)}
-              className="hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-stone-900 transition-colors cursor-pointer"
             >
               How it works
             </button>
             <button 
               onClick={() => setShowMediums(true)}
-              className="hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-stone-900 transition-colors cursor-pointer"
             >
               Mediums
             </button>
             <button 
               onClick={() => setShowPricing(true)}
-              className="hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-stone-900 transition-colors cursor-pointer"
             >
               Pricing
             </button>
           </nav>
-          <button className="bg-zinc-100 text-black px-4 py-2 rounded-none text-sm font-bold hover:bg-cyan-400 transition-all ai-glow hover:ai-glow-strong">
+          <button className="bg-stone-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-stone-800 transition-all shadow-sm active:scale-95">
             Get Started
           </button>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <main className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
           
           {/* Left Column: Controls */}
-          <div className="space-y-10">
+          <div className="space-y-12">
             <section>
-              <h1 className="text-6xl font-black tracking-tighter leading-[0.9] mb-4 uppercase">
+              <h1 className="text-7xl font-serif italic tracking-tight leading-[1.1] mb-6 text-stone-900">
                 Visualize your <br />
-                <span className="text-cyan-400 ai-glow">product</span> anywhere.
+                <span className="text-stone-400">product</span> anywhere.
               </h1>
-              <p className="text-zinc-500 text-lg max-w-md font-medium">
+              <p className="text-stone-500 text-xl max-w-md font-light leading-relaxed">
                 Upload a product image and see it instantly rendered on various marketing mediums using advanced AI.
               </p>
             </section>
 
             {/* Upload Area */}
-            <section className="space-y-4">
-              <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">01. Upload Product Image</h2>
+            <section className="space-y-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">01. Upload Product Image</h2>
               <div 
                 {...getRootProps()} 
                 className={cn(
-                  "border border-dashed p-12 transition-all cursor-pointer flex flex-col items-center justify-center gap-4 text-center group glass-panel",
-                  isDragActive ? "border-cyan-500 bg-cyan-500/5" : "border-zinc-800 hover:border-cyan-500/50 hover:bg-zinc-900/50",
-                  originalImage ? "border-cyan-500/50 bg-cyan-500/5" : ""
+                  "border-2 border-dashed p-16 transition-all cursor-pointer flex flex-col items-center justify-center gap-6 text-center group rounded-3xl",
+                  isDragActive ? "border-stone-400 bg-stone-50" : "border-stone-200 hover:border-stone-300 bg-white",
+                  originalImage ? "border-stone-300 bg-stone-50" : "soft-shadow"
                 )}
               >
                 <input {...getInputProps()} />
                 {originalImage ? (
-                  <div className="relative w-full aspect-video overflow-hidden shadow-2xl border border-zinc-700">
+                  <div className="relative w-full aspect-video overflow-hidden rounded-2xl shadow-lg border border-stone-200">
                     <img 
                       src={`data:${originalImage.mimeType};base64,${originalImage.base64}`} 
                       alt="Original" 
-                      className="w-full h-full object-contain bg-zinc-950"
+                      className="w-full h-full object-contain bg-white"
                     />
-                    <div className="absolute inset-0 bg-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                      <p className="text-white font-bold flex items-center gap-2 uppercase text-xs tracking-widest">
+                    <div className="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                      <p className="text-stone-900 font-bold flex items-center gap-2 uppercase text-xs tracking-widest bg-white/90 px-4 py-2 rounded-full shadow-sm">
                         <RefreshCw className="w-4 h-4" /> Change Image
                       </p>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <div className="w-16 h-16 bg-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-cyan-500/20 group-hover:ai-glow">
-                      <Upload className="text-zinc-500 w-8 h-8 group-hover:text-cyan-400" />
+                    <div className="w-20 h-20 bg-stone-50 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform border border-stone-100">
+                      <Upload className="text-stone-400 w-10 h-10 group-hover:text-stone-600" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg uppercase tracking-tight">Drop your product image here</p>
-                      <p className="text-zinc-600 text-xs font-mono">PNG, JPG or WEBP (Max 5MB)</p>
+                      <p className="font-semibold text-xl text-stone-800">Drop your product image here</p>
+                      <p className="text-stone-400 text-sm mt-1">PNG, JPG or WEBP (Max 5MB)</p>
                     </div>
                   </>
                 )}
@@ -248,88 +248,88 @@ export default function App() {
             </section>
 
             {/* Medium Selection */}
-            <section className="space-y-4">
+            <section className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">02. Select Marketing Medium</h2>
-                <div className="relative w-48">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
+                <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">02. Select Marketing Medium</h2>
+                <div className="relative w-56">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
                   <input 
                     type="text" 
-                    placeholder="Search..."
+                    placeholder="Search mediums..."
                     value={mediumSearch}
                     onChange={(e) => setMediumSearch(e.target.value)}
-                    className="w-full pl-9 pr-4 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none text-[10px] uppercase font-mono tracking-wider focus:border-cyan-500 outline-none transition-all text-zinc-300"
+                    className="w-full pl-11 pr-4 py-2.5 bg-white border border-stone-200 rounded-full text-sm focus:border-stone-400 outline-none transition-all text-stone-700 placeholder:text-stone-300 shadow-sm"
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {filteredMediums.slice(0, 5).map((medium) => (
                   <button
                     key={medium.id}
                     onClick={() => setSelectedMedium(medium)}
                     className={cn(
-                      "p-4 border transition-all text-left flex flex-col gap-3 group glass-panel",
+                      "p-6 border transition-all text-left flex flex-col gap-4 group rounded-2xl",
                       selectedMedium.id === medium.id 
-                        ? "border-cyan-500 bg-cyan-500/10 ai-glow" 
-                        : "border-zinc-800 hover:border-zinc-700 bg-zinc-900/20"
+                        ? "border-stone-900 bg-stone-900 text-white shadow-md" 
+                        : "border-stone-200 hover:border-stone-300 bg-white hover:shadow-sm"
                     )}
                   >
                     <medium.icon className={cn(
-                      "w-6 h-6 transition-colors",
-                      selectedMedium.id === medium.id ? "text-cyan-400" : "text-zinc-600 group-hover:text-zinc-400"
+                      "w-7 h-7 transition-colors",
+                      selectedMedium.id === medium.id ? "text-white" : "text-stone-400 group-hover:text-stone-600"
                     )} />
-                    <span className="font-bold text-xs uppercase tracking-tight">{medium.name}</span>
+                    <span className="font-semibold text-sm tracking-tight">{medium.name}</span>
                   </button>
                 ))}
                 <button 
                   onClick={() => setShowMediums(true)}
-                  className="p-4 border border-dashed border-zinc-800 hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all text-center flex flex-col items-center justify-center gap-1 group glass-panel"
+                  className="p-6 border-2 border-dashed border-stone-200 hover:border-stone-300 hover:bg-stone-50 transition-all text-center flex flex-col items-center justify-center gap-2 group rounded-2xl"
                 >
-                  <span className="text-cyan-400 font-bold text-xs">+ {MEDIUMS.length - 5} More</span>
-                  <span className="text-[8px] text-zinc-600 uppercase font-bold font-mono">View All</span>
+                  <span className="text-stone-900 font-bold text-sm">+ {MEDIUMS.length - 5} More</span>
+                  <span className="text-[10px] text-stone-400 uppercase font-bold tracking-widest">View All</span>
                 </button>
               </div>
             </section>
 
             {/* Resolution & Aspect Ratio Selection */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-8">
               <section className="space-y-4">
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">03. Select Resolution</h2>
-                <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none w-fit">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">03. Select Resolution</h2>
+                <div className="flex flex-wrap gap-2 p-1.5 bg-stone-50 border border-stone-200 rounded-2xl w-fit">
                   {RESOLUTIONS.map((res) => (
                     <button
                       key={res.id}
                       onClick={() => setSelectedResolution(res.id)}
                       className={cn(
-                        "px-4 py-2 text-[10px] font-bold transition-all flex flex-col items-center gap-0.5 font-mono",
+                        "px-5 py-2.5 text-xs font-semibold transition-all flex flex-col items-center gap-0.5 rounded-xl",
                         selectedResolution === res.id 
-                          ? "bg-cyan-500 text-black ai-glow" 
-                          : "text-zinc-500 hover:text-zinc-300"
+                          ? "bg-white text-stone-900 shadow-sm" 
+                          : "text-stone-400 hover:text-stone-600"
                       )}
                     >
                       <span>{res.name}</span>
-                      <span className="text-[8px] opacity-60">{res.label}</span>
+                      <span className="text-[9px] opacity-60 uppercase tracking-tighter">{res.label}</span>
                     </button>
                   ))}
                 </div>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 font-mono">04. Aspect Ratio</h2>
-                <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-none w-fit">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">04. Aspect Ratio</h2>
+                <div className="flex flex-wrap gap-2 p-1.5 bg-stone-50 border border-stone-200 rounded-2xl w-fit">
                   {ASPECT_RATIOS.map((ratio) => (
                     <button
                       key={ratio.id}
                       onClick={() => setSelectedAspectRatio(ratio.id)}
                       className={cn(
-                        "px-3 py-2 text-[10px] font-bold transition-all flex flex-col items-center gap-0.5 min-w-[60px] font-mono",
+                        "px-4 py-2.5 text-xs font-semibold transition-all flex flex-col items-center gap-0.5 min-w-[70px] rounded-xl",
                         selectedAspectRatio === ratio.id 
-                          ? "bg-cyan-500 text-black ai-glow" 
-                          : "text-zinc-500 hover:text-zinc-300"
+                          ? "bg-white text-stone-900 shadow-sm" 
+                          : "text-stone-400 hover:text-stone-600"
                       )}
                     >
                       <span>{ratio.name}</span>
-                      <span className="text-[8px] opacity-60">{ratio.label}</span>
+                      <span className="text-[9px] opacity-60 uppercase tracking-tighter">{ratio.label}</span>
                     </button>
                   ))}
                 </div>
@@ -341,21 +341,21 @@ export default function App() {
               onClick={handleGenerate}
               disabled={!originalImage || isGenerating}
               className={cn(
-                "w-full py-5 rounded-none font-black text-lg uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl",
+                "w-full py-6 rounded-2xl font-bold text-xl tracking-tight transition-all flex items-center justify-center gap-4 shadow-lg",
                 !originalImage || isGenerating 
-                  ? "bg-zinc-900 text-zinc-700 cursor-not-allowed border border-zinc-800" 
-                  : "bg-cyan-500 text-black hover:bg-cyan-400 active:scale-[0.98] ai-glow hover:ai-glow-strong"
+                  ? "bg-stone-100 text-stone-400 cursor-not-allowed border border-stone-200" 
+                  : "bg-stone-900 text-white hover:bg-stone-800 active:scale-[0.98] shadow-stone-200"
               )}
             >
               {isGenerating ? (
                 <>
-                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <Loader2 className="w-7 h-7 animate-spin" />
                   Processing...
                 </>
               ) : (
                 <>
-                  <Zap className="w-6 h-6" />
-                  Generate
+                  <Zap className="w-7 h-7 fill-current" />
+                  Generate Visualization
                 </>
               )}
             </button>
@@ -369,8 +369,8 @@ export default function App() {
           </div>
 
           {/* Right Column: Result Display */}
-          <div className="sticky top-28">
-            <div className="relative w-full bg-zinc-950 border border-zinc-800 ai-glow overflow-hidden" style={{ aspectRatio: selectedAspectRatio.replace(':', '/') }}>
+          <div className="sticky top-32">
+            <div className="relative w-full bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden soft-shadow" style={{ aspectRatio: selectedAspectRatio.replace(':', '/') }}>
               <AnimatePresence mode="wait">
                 {isGenerating ? (
                   <motion.div 
@@ -378,21 +378,21 @@ export default function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-zinc-950"
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-8 bg-white/80 backdrop-blur-md"
                   >
                     <div className="relative">
-                      <div className="w-24 h-24 border-4 border-cyan-500/10 animate-pulse" />
-                      <Loader2 className="absolute inset-0 m-auto w-10 h-10 text-cyan-400 animate-spin" />
+                      <div className="w-28 h-28 border-4 border-stone-100 rounded-full animate-pulse" />
+                      <Loader2 className="absolute inset-0 m-auto w-12 h-12 text-stone-900 animate-spin" />
                     </div>
                     <div className="text-center">
-                      <p className="font-black text-xl uppercase tracking-tighter">Synthesizing</p>
-                      <p className="text-zinc-600 text-[10px] uppercase font-mono tracking-widest">AI is rendering your product...</p>
+                      <p className="font-bold text-2xl text-stone-900 tracking-tight">Creating your visual</p>
+                      <p className="text-stone-400 text-sm mt-2">AI is painting your product into the scene...</p>
                     </div>
                   </motion.div>
                 ) : generatedImage ? (
                   <motion.div 
                     key="result"
-                    initial={{ opacity: 0, scale: 1.1 }}
+                    initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 group"
                   >
@@ -401,18 +401,18 @@ export default function App() {
                       alt="Generated Result" 
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
                       <button 
                         onClick={handleDownload}
-                        className="bg-cyan-500 text-black px-6 py-3 font-bold shadow-[0_0_20px_rgba(6,182,212,0.5)] flex items-center gap-2 hover:bg-cyan-400 transition-all active:scale-95"
+                        className="bg-stone-900 text-white px-8 py-4 rounded-full font-bold shadow-xl flex items-center gap-3 hover:bg-stone-800 transition-all active:scale-95"
                       >
-                        <Download className="w-5 h-5" /> DOWNLOAD
+                        <Download className="w-6 h-6" /> DOWNLOAD
                       </button>
                       <button 
                         onClick={() => setGeneratedImage(null)}
-                        className="bg-zinc-900/80 backdrop-blur-md text-white border border-zinc-700 px-6 py-3 font-bold shadow-2xl flex items-center gap-2 hover:bg-zinc-800 transition-all active:scale-95"
+                        className="bg-white/90 backdrop-blur-md text-stone-900 border border-stone-200 px-8 py-4 rounded-full font-bold shadow-lg flex items-center gap-3 hover:bg-stone-50 transition-all active:scale-95"
                       >
-                        <RefreshCw className="w-5 h-5" /> RESET
+                        <RefreshCw className="w-6 h-6" /> RESET
                       </button>
                     </div>
                   </motion.div>
@@ -421,14 +421,14 @@ export default function App() {
                     key="placeholder"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-zinc-900/50 text-zinc-500 p-12 text-center"
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-8 bg-stone-50/50 text-stone-400 p-16 text-center"
                   >
-                    <div className="w-20 h-20 border border-dashed border-zinc-800 flex items-center justify-center bg-zinc-950/50">
-                      <ImageIcon className="w-10 h-10 text-zinc-700" />
+                    <div className="w-24 h-24 border-2 border-dashed border-stone-200 rounded-3xl flex items-center justify-center bg-white">
+                      <ImageIcon className="w-12 h-12 text-stone-200" />
                     </div>
                     <div>
-                      <p className="font-bold text-xl text-zinc-400 tracking-tight">VISUALIZATION PREVIEW</p>
-                      <p className="text-xs max-w-[200px] mx-auto mt-2 text-zinc-600 font-mono">Upload an image and click generate to see the AI magic happen.</p>
+                      <p className="font-bold text-2xl text-stone-800 tracking-tight">PREVIEW AREA</p>
+                      <p className="text-sm max-w-[240px] mx-auto mt-3 text-stone-400 leading-relaxed">Your generated visualization will appear here in high resolution.</p>
                     </div>
                   </motion.div>
                 )}
@@ -440,47 +440,47 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-6 p-6 glass-panel border border-zinc-800/50 space-y-4"
+                className="mt-8 p-8 bg-white border border-stone-200 rounded-3xl soft-shadow space-y-6"
               >
                 <div className="flex items-center justify-between">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-500/70">Adjust Product Design</h2>
-                  <span className="text-[9px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-none font-bold border border-cyan-500/20 tracking-widest">AI POWERED</span>
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">Refine Visualization</h2>
+                  <span className="text-[10px] bg-stone-50 text-stone-500 px-3 py-1 rounded-full font-bold border border-stone-100 tracking-widest">AI ASSISTANT</span>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <input 
                     type="text" 
                     value={refinementPrompt}
                     onChange={(e) => setRefinementPrompt(e.target.value)}
-                    placeholder="e.g. Change background to blue, make it sunset..."
-                    className="flex-grow px-4 py-3 bg-zinc-950 border border-zinc-800 focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all text-sm text-zinc-300 placeholder:text-zinc-700"
+                    placeholder="e.g. Add more sunlight, change background..."
+                    className="flex-grow px-6 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:border-stone-400 outline-none transition-all text-stone-800 placeholder:text-stone-300"
                     onKeyDown={(e) => e.key === 'Enter' && handleRefine()}
                   />
                   <button 
                     onClick={handleRefine}
                     disabled={!refinementPrompt || isGenerating}
-                    className="bg-cyan-500 text-black px-6 py-3 font-bold hover:bg-cyan-400 transition-all disabled:bg-zinc-900 disabled:text-zinc-700 flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                    className="bg-stone-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-stone-800 transition-all disabled:bg-stone-100 disabled:text-stone-300 flex items-center gap-3 active:scale-95 shadow-md"
                   >
-                    {isGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Zap className="w-4 h-4" />}
+                    {isGenerating ? <Loader2 className="w-5 h-5 animate-spin" /> : <Zap className="w-5 h-5 fill-current" />}
                     ADJUST
                   </button>
                 </div>
-                <p className="text-[10px] text-zinc-600 font-mono italic">Describe how you want to change the generated image above.</p>
+                <p className="text-xs text-stone-400 italic">Describe any changes you'd like to make to the result.</p>
               </motion.div>
             )}
 
             {/* Stats/Info */}
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="glass-panel p-4 border border-zinc-800/50">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Resolution</p>
-                <p className="font-bold text-zinc-300 font-mono">1024 x 1024</p>
+            <div className="mt-10 grid grid-cols-3 gap-6">
+              <div className="bg-white p-6 border border-stone-100 rounded-2xl soft-shadow">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-2">Resolution</p>
+                <p className="font-bold text-stone-800">1024 x 1024</p>
               </div>
-              <div className="glass-panel p-4 border border-zinc-800/50">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">AI Model</p>
-                <p className="font-bold text-zinc-300 font-mono">Gemini 3.1</p>
+              <div className="bg-white p-6 border border-stone-100 rounded-2xl soft-shadow">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-2">AI Model</p>
+                <p className="font-bold text-stone-800">Gemini 3.1</p>
               </div>
-              <div className="glass-panel p-4 border border-zinc-800/50">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Consistency</p>
-                <p className="font-bold text-cyan-400 font-mono">ULTRA</p>
+              <div className="bg-white p-6 border border-stone-100 rounded-2xl soft-shadow">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-2">Quality</p>
+                <p className="font-bold text-stone-900">PREMIUM</p>
               </div>
             </div>
           </div>
@@ -489,19 +489,19 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-900 py-12 mt-20 bg-black/50 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center">
-              <Layout className="text-black w-4 h-4" />
+      <footer className="border-t border-stone-100 py-20 mt-32 bg-stone-50/50 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+          <div className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all cursor-default">
+            <div className="w-8 h-8 bg-stone-900 rounded-lg flex items-center justify-center">
+              <Layout className="text-white w-5 h-5" />
             </div>
-            <span className="font-bold text-lg tracking-tighter text-white uppercase">ProductVisualizer <span className="text-cyan-500">by Seph</span></span>
+            <span className="font-bold text-xl tracking-tight text-stone-900">ProductVisualizer <span className="text-stone-400 font-light">by Seph</span></span>
           </div>
-          <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">© 2026 PRODUCTVISUALIZER BY SEPH. POWERED BY GOOGLE GEMINI NEURAL ENGINE.</p>
-          <div className="flex gap-8 text-zinc-500 text-xs font-bold tracking-widest uppercase">
-            <button onClick={() => setShowPrivacy(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Privacy</button>
-            <button onClick={() => setShowTerms(true)} className="hover:text-cyan-400 transition-colors cursor-pointer">Terms</button>
-            <a href="mailto:argeljosephtam94@gmail.com" className="hover:text-cyan-400 transition-colors">Contact</a>
+          <p className="text-stone-400 text-xs font-medium tracking-wide">© 2026 PRODUCTVISUALIZER BY SEPH. POWERED BY GOOGLE GEMINI.</p>
+          <div className="flex gap-10 text-stone-500 text-sm font-semibold tracking-wide">
+            <button onClick={() => setShowPrivacy(true)} className="hover:text-stone-900 transition-colors cursor-pointer">Privacy</button>
+            <button onClick={() => setShowTerms(true)} className="hover:text-stone-900 transition-colors cursor-pointer">Terms</button>
+            <a href="mailto:argeljosephtam94@gmail.com" className="hover:text-stone-900 transition-colors">Contact</a>
           </div>
         </div>
       </footer>
@@ -515,55 +515,55 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowHowItWorks(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-3xl shadow-2xl overflow-hidden"
             >
-              <div className="p-8 md:p-12">
+              <div className="p-10 md:p-16">
                 <button 
                   onClick={() => setShowHowItWorks(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
+                  className="absolute top-8 right-8 p-2 hover:bg-stone-50 rounded-full transition-colors text-stone-400"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">How to use <span className="text-cyan-500">ProductVisualizer</span></h2>
+                <h2 className="text-4xl font-serif italic tracking-tight mb-10 text-stone-900">How it works</h2>
                 
-                <div className="space-y-8">
-                  <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">01</div>
+                <div className="space-y-10">
+                  <div className="flex gap-8">
+                    <div className="w-12 h-12 rounded-2xl bg-stone-50 text-stone-900 border border-stone-100 flex items-center justify-center font-bold shrink-0 shadow-sm">1</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Upload your product</h3>
-                      <p className="text-zinc-500 text-sm leading-relaxed">Drag and drop or click to upload a high-quality image of your product. For best results, use an image with a clean background.</p>
+                      <h3 className="font-semibold text-xl mb-2 text-stone-900">Upload your product</h3>
+                      <p className="text-stone-500 leading-relaxed">Drag and drop or click to upload a high-quality image of your product. For best results, use an image with a clean background.</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">02</div>
+                  <div className="flex gap-8">
+                    <div className="w-12 h-12 rounded-2xl bg-stone-50 text-stone-900 border border-stone-100 flex items-center justify-center font-bold shrink-0 shadow-sm">2</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Select a medium</h3>
-                      <p className="text-zinc-500 text-sm leading-relaxed">Choose from our curated list of marketing mediums like coffee mugs, billboards, or t-shirts where you want to see your product.</p>
+                      <h3 className="font-semibold text-xl mb-2 text-stone-900">Select a medium</h3>
+                      <p className="text-stone-500 leading-relaxed">Choose from our curated list of marketing mediums like coffee mugs, billboards, or t-shirts where you want to see your product.</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-6">
-                    <div className="w-10 h-10 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold shrink-0 font-mono">03</div>
+                  <div className="flex gap-8">
+                    <div className="w-12 h-12 rounded-2xl bg-stone-50 text-stone-900 border border-stone-100 flex items-center justify-center font-bold shrink-0 shadow-sm">3</div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">Generate & Download</h3>
-                      <p className="text-zinc-500 text-sm leading-relaxed">Click generate and let our AI handle the rest. Once finished, you can download your professional visualization instantly.</p>
+                      <h3 className="font-semibold text-xl mb-2 text-stone-900">Generate & Download</h3>
+                      <p className="text-stone-500 leading-relaxed">Click generate and let our AI handle the rest. Once finished, you can download your professional visualization instantly.</p>
                     </div>
                   </div>
                 </div>
 
                 <button 
                   onClick={() => setShowHowItWorks(false)}
-                  className="w-full mt-12 bg-cyan-500 text-black py-4 font-bold hover:bg-cyan-400 transition-all active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+                  className="w-full mt-14 bg-stone-900 text-white py-5 rounded-2xl font-bold hover:bg-stone-800 transition-all active:scale-95 shadow-lg"
                 >
-                  INITIALIZE SYSTEM
+                  Start Visualizing
                 </button>
               </div>
             </motion.div>
@@ -580,56 +580,56 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowMediums(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-4xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-5xl bg-white border border-stone-200 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
             >
-              <div className="p-8 md:p-12 overflow-y-auto">
+              <div className="p-10 md:p-16 overflow-y-auto">
                 <button 
                   onClick={() => setShowMediums(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
+                  className="absolute top-8 right-8 p-2 hover:bg-stone-50 rounded-full transition-colors text-stone-400"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
                   <div>
-                    <h2 className="text-4xl font-bold tracking-tighter mb-2 text-white uppercase">Available <span className="text-cyan-500">Mediums</span></h2>
-                    <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Explore professional settings for your product visualization.</p>
+                    <h2 className="text-5xl font-serif italic tracking-tight mb-3 text-stone-900">Available Mediums</h2>
+                    <p className="text-stone-400 font-medium">Explore professional settings for your product visualization.</p>
                   </div>
-                  <div className="relative w-full md:w-80">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-600" />
+                  <div className="relative w-full md:w-96">
+                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
                     <input 
                       type="text" 
                       placeholder="Search for a medium..."
                       value={mediumSearch}
                       onChange={(e) => setMediumSearch(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3 bg-zinc-900 border border-zinc-800 focus:border-cyan-500/50 outline-none transition-all text-zinc-300 placeholder:text-zinc-700 font-mono uppercase text-xs tracking-widest"
+                      className="w-full pl-14 pr-6 py-4 bg-stone-50 border border-stone-100 rounded-full focus:border-stone-300 outline-none transition-all text-stone-700 placeholder:text-stone-300 shadow-sm"
                     />
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredMediums.map((medium) => (
                     <div 
                       key={medium.id}
-                      className="p-6 border border-zinc-900 bg-zinc-900/30 hover:bg-zinc-900/50 hover:border-cyan-500/30 transition-all group cursor-pointer"
+                      className="p-8 border border-stone-100 bg-white hover:bg-stone-50 hover:border-stone-200 transition-all group cursor-pointer rounded-2xl soft-shadow"
                       onClick={() => {
                         setSelectedMedium(medium);
                         setShowMediums(false);
                       }}
                     >
-                      <div className="w-12 h-12 bg-zinc-950 border border-zinc-800 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-cyan-500/50 transition-all">
-                        <medium.icon className="w-6 h-6 text-cyan-500" />
+                      <div className="w-14 h-14 bg-stone-50 border border-stone-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white transition-all">
+                        <medium.icon className="w-7 h-7 text-stone-900" />
                       </div>
-                      <h3 className="font-bold text-lg mb-1 text-zinc-200 uppercase tracking-tight">{medium.name}</h3>
-                      <p className="text-zinc-500 text-xs leading-relaxed font-mono">{medium.description}</p>
-                      <div className="mt-4 text-[10px] font-bold uppercase tracking-widest text-cyan-500/70 group-hover:text-cyan-400 flex items-center gap-1">
-                        SELECT MEDIUM <Zap className="w-3 h-3" />
+                      <h3 className="font-semibold text-xl mb-2 text-stone-900">{medium.name}</h3>
+                      <p className="text-stone-500 text-sm leading-relaxed">{medium.description}</p>
+                      <div className="mt-6 text-xs font-bold uppercase tracking-widest text-stone-400 group-hover:text-stone-900 flex items-center gap-2 transition-colors">
+                        SELECT MEDIUM <Zap className="w-4 h-4 fill-current" />
                       </div>
                     </div>
                   ))}
@@ -649,108 +649,108 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowPricing(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-5xl bg-white border border-stone-200 rounded-3xl shadow-2xl overflow-hidden"
             >
-              <div className="p-8 md:p-16">
+              <div className="p-10 md:p-20">
                 <button 
                   onClick={() => setShowPricing(false)}
-                  className="absolute top-8 right-8 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
+                  className="absolute top-10 right-10 p-2 hover:bg-stone-50 rounded-full transition-colors text-stone-400"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <div className="text-center mb-16">
-                  <span className="bg-cyan-500/10 text-cyan-400 px-4 py-1 rounded-none text-[10px] font-bold uppercase tracking-[0.2em] mb-4 inline-block border border-cyan-500/20">System Access</span>
-                  <h2 className="text-5xl font-bold tracking-tighter mb-4 text-white uppercase">Simple, <span className="text-cyan-500 italic font-serif lowercase">transparent</span> pricing.</h2>
-                  <p className="text-zinc-500 max-w-lg mx-auto font-mono text-xs uppercase tracking-widest">High-performance visualization for every creator.</p>
+                <div className="text-center mb-20">
+                  <span className="bg-stone-50 text-stone-500 px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block border border-stone-100">Pricing Plans</span>
+                  <h2 className="text-6xl font-serif italic tracking-tight mb-6 text-stone-900">Simple, transparent pricing.</h2>
+                  <p className="text-stone-400 max-w-lg mx-auto font-medium">High-performance visualization for every creator.</p>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                   {/* Free Plan */}
-                  <div className="bg-zinc-900/50 p-8 border border-zinc-800 flex flex-col hover:border-zinc-700 transition-colors">
-                    <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2 text-zinc-200 uppercase tracking-tight">Basic</h3>
+                  <div className="bg-white p-10 border border-stone-100 flex flex-col hover:border-stone-200 transition-all rounded-3xl soft-shadow">
+                    <div className="mb-10">
+                      <h3 className="font-semibold text-2xl mb-3 text-stone-900">Basic</h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-white">₱0</span>
-                        <span className="text-zinc-600 text-xs font-mono">/MO</span>
+                        <span className="text-5xl font-bold text-stone-900">₱0</span>
+                        <span className="text-stone-400 text-sm font-semibold">/MO</span>
                       </div>
                     </div>
-                    <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> 5 VISUALS / MO
+                    <ul className="space-y-5 mb-12 flex-grow">
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> 5 Visuals / mo
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> STANDARD RES
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Standard Resolution
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> BASIC MEDIUMS
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Basic Mediums
                       </li>
                     </ul>
-                    <button className="w-full py-4 font-bold border border-zinc-800 text-zinc-500 hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest">Current Tier</button>
+                    <button className="w-full py-5 font-bold border border-stone-200 text-stone-400 rounded-2xl hover:bg-stone-50 transition-all uppercase text-xs tracking-widest">Current Tier</button>
                   </div>
 
-                  {/* Student Plan */}
-                  <div className="bg-zinc-900 p-8 border-2 border-cyan-500 shadow-[0_0_40px_rgba(6,182,212,0.15)] flex flex-col relative transform scale-105 z-10">
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-black px-4 py-1 rounded-none text-[9px] font-bold uppercase tracking-[0.2em]">Recommended</div>
-                    <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2 flex items-center gap-2 text-white uppercase tracking-tight">Creator <Star className="w-4 h-4 text-cyan-500 fill-cyan-500" /></h3>
+                  {/* Creator Plan */}
+                  <div className="bg-stone-900 p-10 border-2 border-stone-900 shadow-2xl flex flex-col relative transform scale-105 z-10 rounded-3xl">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-stone-900 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-800">Most Popular</div>
+                    <div className="mb-10">
+                      <h3 className="font-semibold text-2xl mb-3 flex items-center gap-3 text-white">Creator <Star className="w-5 h-5 text-white fill-current" /></h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-white">₱49</span>
-                        <span className="text-zinc-400 text-xs font-mono">/MO</span>
+                        <span className="text-5xl font-bold text-white">₱49</span>
+                        <span className="text-stone-400 text-sm font-semibold">/MO</span>
                       </div>
                     </div>
-                    <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> 50 VISUALS / MO
+                    <ul className="space-y-5 mb-12 flex-grow">
+                      <li className="flex items-center gap-4 text-stone-200 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-white shrink-0" /> 50 Visuals / mo
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> HD RESOLUTION
+                      <li className="flex items-center gap-4 text-stone-200 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-white shrink-0" /> HD Resolution
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> ALL MEDIUMS
+                      <li className="flex items-center gap-4 text-stone-200 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-white shrink-0" /> All Mediums
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-200 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> NO WATERMARKS
+                      <li className="flex items-center gap-4 text-stone-200 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-white shrink-0" /> No Watermarks
                       </li>
                     </ul>
-                    <button className="w-full py-4 font-bold bg-cyan-500 text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] uppercase text-xs tracking-widest">Upgrade System</button>
+                    <button className="w-full py-5 font-bold bg-white text-stone-900 rounded-2xl hover:bg-stone-100 transition-all shadow-lg uppercase text-xs tracking-widest">Upgrade Now</button>
                   </div>
 
                   {/* Pro Plan */}
-                  <div className="bg-zinc-900/50 p-8 border border-zinc-800 flex flex-col hover:border-zinc-700 transition-colors">
-                    <div className="mb-8">
-                      <h3 className="font-bold text-xl mb-2 text-zinc-200 uppercase tracking-tight">Enterprise</h3>
+                  <div className="bg-white p-10 border border-stone-100 flex flex-col hover:border-stone-200 transition-all rounded-3xl soft-shadow">
+                    <div className="mb-10">
+                      <h3 className="font-semibold text-2xl mb-3 text-stone-900">Enterprise</h3>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold text-white">₱199</span>
-                        <span className="text-zinc-600 text-xs font-mono">/MO</span>
+                        <span className="text-5xl font-bold text-stone-900">₱199</span>
+                        <span className="text-stone-400 text-sm font-semibold">/MO</span>
                       </div>
                     </div>
-                    <ul className="space-y-4 mb-10 flex-grow">
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> UNLIMITED VISUALS
+                    <ul className="space-y-5 mb-12 flex-grow">
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Unlimited Visuals
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> ULTRA HD (4K)
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Ultra HD (4K)
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> CUSTOM AI MEDIUMS
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Custom AI Mediums
                       </li>
-                      <li className="flex items-center gap-3 text-xs text-zinc-500 font-mono uppercase tracking-tight">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-500 shrink-0" /> COMMERCIAL LICENSE
+                      <li className="flex items-center gap-4 text-stone-500 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-stone-900 shrink-0" /> Commercial License
                       </li>
                     </ul>
-                    <button className="w-full py-4 font-bold bg-white text-black hover:bg-zinc-200 transition-all uppercase text-xs tracking-widest">Contact Sales</button>
+                    <button className="w-full py-5 font-bold bg-stone-50 text-stone-900 rounded-2xl hover:bg-stone-100 transition-all uppercase text-xs tracking-widest">Contact Sales</button>
                   </div>
                 </div>
 
-                <p className="text-center mt-12 text-zinc-600 text-[10px] font-mono flex items-center justify-center gap-2 uppercase tracking-widest">
-                  <CreditCard className="w-3 h-3" /> Encrypted payment via GCash, Maya, or Credit Card.
+                <p className="text-center mt-16 text-stone-400 text-xs font-medium flex items-center justify-center gap-3">
+                  <CreditCard className="w-4 h-4" /> Secure payment via GCash, Maya, or Credit Card.
                 </p>
               </div>
             </motion.div>
@@ -767,44 +767,44 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowPrivacy(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-3xl shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
             >
-              <div className="p-8 md:p-12">
+              <div className="p-10 md:p-16">
                 <button 
                   onClick={() => setShowPrivacy(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
+                  className="absolute top-8 right-8 p-2 hover:bg-stone-50 rounded-full transition-colors text-stone-400"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">Privacy <span className="text-cyan-500">Protocol</span></h2>
+                <h2 className="text-4xl font-serif italic tracking-tight mb-10 text-stone-900">Privacy Policy</h2>
                 
-                <div className="space-y-6 text-zinc-500 text-sm leading-relaxed font-mono uppercase tracking-tight">
+                <div className="space-y-8 text-stone-500 leading-relaxed">
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">01. DATA COLLECTION</h3>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">01. Data Collection</h3>
                     <p>We collect the images you upload for the sole purpose of generating visualizations. These images are processed by Google Gemini AI and are not stored permanently on our servers unless you explicitly save them.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">02. DATA USAGE</h3>
-                    <p>Your data is used to provide and improve the ProductVisualizerAI service. We do not sell your personal information or uploaded content to third parties.</p>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">02. Data Usage</h3>
+                    <p>Your data is used to provide and improve the ProductVisualizer service. We do not sell your personal information or uploaded content to third parties.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">03. NEURAL PROCESSING</h3>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">03. AI Processing</h3>
                     <p>By using this service, you acknowledge that your uploaded images are processed by Google's Gemini AI models. Please refer to Google's Privacy Policy for more information on how they handle data.</p>
                   </section>
                 </div>
 
                 <button 
                   onClick={() => setShowPrivacy(false)}
-                  className="w-full mt-12 bg-zinc-900 text-zinc-400 py-4 font-bold hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest border border-zinc-800"
+                  className="w-full mt-14 bg-stone-100 text-stone-600 py-5 rounded-2xl font-bold hover:bg-stone-200 transition-all uppercase text-xs tracking-widest"
                 >
-                  CLOSE PROTOCOL
+                  Close Privacy Policy
                 </button>
               </div>
             </motion.div>
@@ -821,44 +821,44 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowTerms(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-none shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-3xl shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
             >
-              <div className="p-8 md:p-12">
+              <div className="p-10 md:p-16">
                 <button 
                   onClick={() => setShowTerms(false)}
-                  className="absolute top-6 right-6 p-2 hover:bg-zinc-900 rounded-none transition-colors text-zinc-500"
+                  className="absolute top-8 right-8 p-2 hover:bg-stone-50 rounded-full transition-colors text-stone-400"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <h2 className="text-3xl font-bold tracking-tighter mb-8 text-white uppercase">Terms of <span className="text-cyan-500">Service</span></h2>
+                <h2 className="text-4xl font-serif italic tracking-tight mb-10 text-stone-900">Terms of Service</h2>
                 
-                <div className="space-y-6 text-zinc-500 text-sm leading-relaxed font-mono uppercase tracking-tight">
+                <div className="space-y-8 text-stone-500 leading-relaxed">
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">01. ACCEPTANCE</h3>
-                    <p>By accessing or using ProductVisualizerAI, you agree to be bound by these Terms of Service.</p>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">01. Acceptance</h3>
+                    <p>By accessing or using ProductVisualizer, you agree to be bound by these Terms of Service.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">02. USAGE</h3>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">02. Usage</h3>
                     <p>You agree to use the service only for lawful purposes and in accordance with these Terms. You are responsible for any content you upload.</p>
                   </section>
                   <section>
-                    <h3 className="text-lg font-bold text-zinc-200 mb-2 tracking-tighter">03. INTELLECTUAL PROPERTY</h3>
-                    <p>You retain ownership of the original images you upload. ProductVisualizerAI retains ownership of the underlying AI technology and platform.</p>
+                    <h3 className="text-xl font-semibold text-stone-900 mb-3">03. Intellectual Property</h3>
+                    <p>You retain ownership of the original images you upload. ProductVisualizer retains ownership of the underlying AI technology and platform.</p>
                   </section>
                 </div>
 
                 <button 
                   onClick={() => setShowTerms(false)}
-                  className="w-full mt-12 bg-zinc-900 text-zinc-400 py-4 font-bold hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest border border-zinc-800"
+                  className="w-full mt-14 bg-stone-100 text-stone-600 py-5 rounded-2xl font-bold hover:bg-stone-200 transition-all uppercase text-xs tracking-widest"
                 >
-                  CLOSE TERMS
+                  Close Terms
                 </button>
               </div>
             </motion.div>
